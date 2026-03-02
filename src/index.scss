@@ -1,0 +1,105 @@
+// Variáveis - O coração do seu design
+$primary-color: #4ade80; // Verde Neon
+$bg-color: #0a0a0a;
+$card-bg: #171717;
+$text-main: #ffffff;
+$text-muted: #a3a3a3;
+$transition: all 0.3s ease;
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  background-color: $bg-color;
+  color: $text-main;
+  font-family: 'Inter', sans-serif;
+  line-height: 1.6;
+}
+
+.container {
+  max-width: 1100px;
+  margin: 0 auto;
+  padding: 0 20px;
+}
+
+// Estilização Aninhada (Sass)
+.navbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 2rem 0;
+
+  .logo {
+    font-size: 1.5rem;
+    font-weight: 900;
+    color: $primary-color;
+    letter-spacing: -1px;
+  }
+
+  .btn-whatsapp {
+    background: $primary-color;
+    color: black;
+    padding: 0.6rem 1.5rem;
+    border-radius: 50px;
+    text-decoration: none;
+    font-weight: bold;
+    transition: $transition;
+
+    &:hover {
+      transform: scale(1.05);
+      filter: brightness(1.1);
+    }
+  }
+}
+
+.hero {
+  text-align: center;
+  margin-top: 5rem;
+
+  h1 {
+    font-size: 4rem;
+    line-height: 1.1;
+    margin-bottom: 1.5rem;
+
+    span { color: $primary-color; }
+  }
+
+  p {
+    color: $text-muted;
+    font-size: 1.25rem;
+    max-width: 600px;
+    margin: 0 auto 2rem;
+  }
+}
+
+.pricing-card {
+  background: linear-gradient(180deg, #262626 0%, #000000 100%);
+  border: 1px solid #333;
+  border-radius: 30px;
+  padding: 3rem;
+  margin-top: 4rem;
+  text-align: center;
+
+  .price {
+    font-size: 3rem;
+    font-weight: 800;
+    margin: 1.5rem 0;
+  }
+
+  .btn-pay {
+    background: #0070f3; // Azul Mercado Pago
+    color: white;
+    display: block;
+    padding: 1rem;
+    border-radius: 15px;
+    text-decoration: none;
+    font-size: 1.2rem;
+    font-weight: bold;
+    margin-top: 2rem;
+    
+    &:hover { background: #0051ad; }
+  }
+}
