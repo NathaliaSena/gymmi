@@ -1,9 +1,10 @@
 // Variáveis - O coração do seu design
 $primary-color: #4ade80; // Verde Neon
-$bg-color: #fff;
+$bg-color: #171717;
 $card-bg: #171717;
+$text-light: #ffffff;
 $text-main: #ffffff;
-$text-muted: #a3a3a3;
+$text-muted: rgba(255, 255, 255, 0.6);
 $transition: all 0.3s ease;
 
 * {
@@ -54,6 +55,18 @@ body {
     }
   }
 }
+.features-list {
+  list-style: none; 
+  padding: 0;       
+  margin: 0 auto;   
+  
+  li {
+    margin-bottom: 1rem;
+    display: flex;       
+    align-items: center;
+    gap: 10px;           
+  }
+}
 
 .hero {
   text-align: center;
@@ -73,11 +86,58 @@ body {
     max-width: 600px;
     margin: 0 auto 2rem;
   }
+
+  .btn-main {
+  display: inline-block;
+  background: $primary-color;
+  color: #000; // Texto preto no fundo verde para máximo contraste
+  padding: 1.2rem 2.5rem;
+  border-radius: 50px;
+  font-weight: 700;
+  font-size: 1.1rem;
+  text-decoration: none;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+  border: none;
+  cursor: pointer;
+  
+  // O brilho neon (Glow)
+  box-shadow: 0 0 20px rgba(74, 222, 128, 0.3);
+
+  &:hover {
+    transform: scale(1.05) translateY(-3px);
+    box-shadow: 0 10px 30px rgba(74, 222, 128, 0.6);
+    background: lighten($primary-color, 5%);
+  }
+
+  &:active {
+    transform: scale(0.98);
+  }
+}
+
+// Animação de pulsação opcional (para chamar muita atenção)
+@keyframes pulse-glow {
+  0% { box-shadow: 0 0 0 0 rgba(74, 222, 128, 0.7); }
+  70% { box-shadow: 0 0 0 15px rgba(74, 222, 128, 0); }
+  100% { box-shadow: 0 0 0 0 rgba(74, 222, 128, 0); }
+}
+
+.pulse {
+  animation: pulse-glow 2s infinite;
+}
+}
+
+@mixin glass-effect {
+  background: rgba(255, 255, 255, 0.03);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.37);
 }
 
 .pricing-card {
-  background: linear-gradient(180deg, #262626 0%, #000000 100%);
-  border: 1px solid #333;
+  @include glass-effect; 
   border-radius: 30px;
   padding: 3rem;
   margin-top: 4rem;
@@ -102,8 +162,9 @@ body {
     
     &:hover { background: #0051ad; }
   }
+}
 
-  .faq-section {
+.faq-section {
   margin: 5rem auto;
   max-width: 700px;
   
@@ -114,16 +175,16 @@ body {
   }
 
   .faq-item {
-    background: #111;
-    border: 1px solid #222;
-    padding: 1.5rem;
-    border-radius: 15px;
-    margin-bottom: 1rem;
-    transition: $transition;
+  @include glass-effect; // Verifique se o nome está EXATAMENTE igual
+  padding: 1.5rem;
+  border-radius: 15px;
+  margin-bottom: 1rem;
+  transition: $transition;
 
-    &:hover {
-      border-color: $primary-color;
-    }
+  &:hover {
+    border-color: $primary-color;
+  }
+}
 
     h4 {
       color: $primary-color;
@@ -136,5 +197,81 @@ body {
       font-size: 0.95rem;
     }
   }
+  
+.main-footer {
+  @include glass-effect;
+  margin-top: 5rem;
+  padding: 4rem 2rem 1.5rem;
+  border-radius: 40px 40px 0 0;
+  color: $text-light;
+
+  .footer-content {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+    gap: 3rem;
+    max-width: 1100px;
+    margin: 0 auto;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+    padding-bottom: 3rem;
+  }
+
+  .footer-brand {
+    h3 {
+      font-size: 1.8rem;
+      color: $primary-color;
+      span { color: #fff; }
+    }
+    p { color: $text-muted; font-size: 0.9rem; }
+  }
+
+  .footer-links {
+    h4 { color: #fff; margin-bottom: 1.5rem; font-weight: 600; }
+    ul {
+      list-style: none;
+      padding: 0;
+      li { 
+        margin-bottom: 10px;
+        a { 
+          color: $text-muted; 
+          text-decoration: none; 
+          transition: all 0.3s ease;
+          &:hover { 
+            color: $primary-color; 
+            padding-left: 5px; // Pequeno movimento ao passar o mouse
+          }
+        }
+      }
+    }
+  }
+
+  .footer-bottom {
+    text-align: center;
+    padding-top: 2rem;
+    p { 
+      color: rgba(255, 255, 255, 0.2); 
+      font-size: 0.75rem;
+      letter-spacing: 1px;
+    }
+  }
 }
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(30px); // Começa 30px abaixo
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0); // Termina na posição original
+  }
 }
+
+// Classe utilitária para aplicar a animação
+.reveal {
+  animation: fadeInUp 0.8s ease-out forwards;
+}
+
+// Delay para os itens aparecerem um depois do outro (efeito cascata)
+.delay-1 { animation-delay: 0.2s; opacity: 0; }
+.delay-2 { animation-delay: 0.4s; opacity: 0; }
+.delay-3 { animation-delay: 0.6s; opacity: 0; }
+
