@@ -97,7 +97,7 @@ body {
 
 .split-container {
     display: flex;
-    flex-direction: column; 
+    flex-direction: column;
     align-items: center;
     justify-content: center;
     gap: 40px;
@@ -122,12 +122,13 @@ body {
         }
     }
 
-    .hero-content, .pricing-card {
+    .hero-content,
+    .pricing-card {
         flex: 1;
         display: flex;
         flex-direction: column;
         justify-content: center;
-        
+
         @media (min-width: 1024px) {
             align-items: flex-start;
             padding-right: 20px;
@@ -137,7 +138,7 @@ body {
     .hero-image {
         flex: 1;
         width: 100%;
-        
+
         img {
             width: 100%;
             height: 100%;
@@ -149,38 +150,49 @@ body {
 }
 
 .scroll-indicator {
-  position: absolute;
-  bottom: 30px;
-  left: 50%;
-  transform: translateX(-50%);
-  
-  span {
-    width: 30px;
-    height: 50px;
-    border: 2px solid $text-muted;
-    border-radius: 20px;
-    display: block;
-    position: relative;
+    position: absolute;
+    bottom: 30px;
+    left: 50%;
+    transform: translateX(-50%);
 
-    &::before {
-      content: '';
-      width: 6px;
-      height: 6px;
-      background: $primary-color;
-      position: absolute;
-      left: 50%;
-      top: 10px;
-      transform: translateX(-50%);
-      border-radius: 50%;
-      animation: scroll-down 2s infinite;
+    span {
+        width: 30px;
+        height: 50px;
+        border: 2px solid $text-muted;
+        border-radius: 20px;
+        display: block;
+        position: relative;
+
+        &::before {
+            content: '';
+            width: 6px;
+            height: 6px;
+            background: $primary-color;
+            position: absolute;
+            left: 50%;
+            top: 10px;
+            transform: translateX(-50%);
+            border-radius: 50%;
+            animation: scroll-down 2s infinite;
+        }
     }
-  }
 }
 
 @keyframes scroll-down {
-  0% { opacity: 0; top: 10px; }
-  50% { opacity: 1; top: 25px; }
-  100% { opacity: 0; top: 35px; }
+    0% {
+        opacity: 0;
+        top: 10px;
+    }
+
+    50% {
+        opacity: 1;
+        top: 25px;
+    }
+
+    100% {
+        opacity: 0;
+        top: 35px;
+    }
 }
 
 // Ajuste específico para o card de preço dentro do split
@@ -226,6 +238,115 @@ body {
         &:hover {
             background: #0051ad;
         }
+    }
+}
+
+.gymmi-form {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    gap: 1.2rem;
+    margin-top: 2rem;
+
+    .input-row {
+        display: flex;
+        gap: 1rem;
+
+        @media (max-width: $tablet) {
+            flex-direction: column;
+        }
+
+        .input-group {
+            flex: 1;
+        }
+    }
+
+    .input-group {
+        display: flex;
+        flex-direction: column;
+        gap: 0.5rem;
+
+        label {
+            font-size: 0.85rem;
+            color: $primary-color;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        input {
+            background: rgba(255, 255, 255, 0.05);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            padding: 1rem;
+            border-radius: 12px;
+            color: #fff;
+            font-size: 1rem;
+            transition: all 0.3s ease;
+
+            &:focus {
+                outline: none;
+                border-color: $primary-color;
+                background: rgba(255, 255, 255, 0.1);
+                box-shadow: 0 0 15px rgba(74, 222, 128, 0.2);
+            }
+
+            &::placeholder {
+                color: rgba(255, 255, 255, 0.2);
+            }
+        }
+    }
+    input#rua, input#cidade, input#uf {
+        background: rgba(255, 255, 255, 0.03); // Um pouco mais escuro para indicar preenchimento automático
+        
+        &:disabled {
+            cursor: not-allowed;
+            opacity: 0.6;
+        }
+    }
+}
+
+.cadastro-header {
+    h2 {
+        font-size: 2.8rem;
+        margin-bottom: 0.5rem;
+
+        span {
+            color: $primary-color;
+        }
+    }
+
+    p {
+        color: $text-muted;
+        font-size: 1.1rem;
+    }
+}
+
+.gymmi-select {
+    background: rgba(255, 255, 255, 0.05);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    padding: 1rem;
+    border-radius: 12px;
+    color: #fff;
+    font-size: 1rem;
+    cursor: pointer;
+    appearance: none; // Remove a seta padrão do navegador
+    
+    option {
+        background: $bg-color; // Garante que as opções fiquem escuras
+        color: white;
+    }
+
+    &:focus {
+        border-color: $primary-color;
+        outline: none;
+    }
+}
+
+// Garante que no mobile as colunas de "Cidade/Estado" não fiquem muito apertadas
+@media (max-width: $tablet) {
+    .input-row {
+        flex-direction: column;
+        gap: 1.2rem;
     }
 }
 
