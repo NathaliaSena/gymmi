@@ -51,6 +51,19 @@ function App() {
           >
             Pagar com Mercado Pago
           </a>
+          <section className="faq-section">
+            <h2>Dúvidas Frequentes</h2>
+
+            <div className="faq-item">
+              <h4>Como recebo meus treinos?</h4>
+              <p>Tudo é enviado diretamente no seu WhatsApp. Sem precisar baixar apps pesados.</p>
+            </div>
+
+            <div className="faq-item">
+              <h4>Posso cancelar quando quiser?</h4>
+              <p>Sim! O plano é mensal e você pode interromper a renovação a qualquer momento pelo painel do Mercado Pago.</p>
+            </div>
+          </section>
         </div>
       </section>
 

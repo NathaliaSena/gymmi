@@ -1,6 +1,6 @@
 // Variáveis - O coração do seu design
 $primary-color: #4ade80; // Verde Neon
-$bg-color: #0a0a0a;
+$bg-color: #fff;
 $card-bg: #171717;
 $text-main: #ffffff;
 $text-muted: #a3a3a3;
@@ -102,4 +102,39 @@ body {
     
     &:hover { background: #0051ad; }
   }
+
+  .faq-section {
+  margin: 5rem auto;
+  max-width: 700px;
+  
+  h2 {
+    text-align: center;
+    color: $primary-color;
+    margin-bottom: 2rem;
+  }
+
+  .faq-item {
+    background: #111;
+    border: 1px solid #222;
+    padding: 1.5rem;
+    border-radius: 15px;
+    margin-bottom: 1rem;
+    transition: $transition;
+
+    &:hover {
+      border-color: $primary-color;
+    }
+
+    h4 {
+      color: $primary-color;
+      margin-bottom: 0.5rem;
+      font-size: 1.1rem;
+    }
+
+    p {
+      color: $text-muted;
+      font-size: 0.95rem;
+    }
+  }
+}
 }
