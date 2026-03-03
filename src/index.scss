@@ -321,6 +321,13 @@ body {
     }
 }
 
+.input-disabled {
+  background: rgba(255, 255, 255, 0.02) !important;
+  color: $primary-color !important; // Deixa o texto da cidade em verde para destacar o sucesso
+  border: 1px solid rgba($primary-color, 0.2) !important;
+  cursor: not-allowed;
+}
+
 .gymmi-select {
     background: rgba(255, 255, 255, 0.05);
     border: 1px solid rgba(255, 255, 255, 0.1);
