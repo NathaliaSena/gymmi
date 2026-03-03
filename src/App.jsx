@@ -1,4 +1,5 @@
 import React from 'react'
+import CadastroForm from '../src/page/cadastroForm'
 
 function App() {
   return (
@@ -77,72 +78,8 @@ function App() {
           />
         </div>
 
-        <div className="hero-content">
-          <div className="cadastro-header">
-            <h2>Finalize seu <span>Cadastro</span></h2>
-            <p>Preencha seus dados oficiais para emissão do plano.</p>
-          </div>
+        <CadastroForm/>
 
-          <form className="gymmi-form">
-            {/* NOME E CPF */}
-            <div className="input-row">
-              <div className="input-group">
-                <label>Nome Completo</label>
-                <input type="text" name="nome" placeholder="Nome Sobrenome" required />
-              </div>
-              <div className="input-group">
-                <label>CPF</label>
-                <input type="text" name="cpf" placeholder="000.000.000-00" required />
-              </div>
-            </div>
-
-            {/* EMAIL E TELEFONE */}
-            <div className="input-row">
-              <div className="input-group">
-                <label>E-mail</label>
-                <input type="email" name="email" placeholder="seu@email.com" required />
-              </div>
-              <div className="input-group">
-                <label>WhatsApp</label>
-                <input type="tel" name="telefone" placeholder="(11) 99999-9999" required />
-              </div>
-            </div>
-
-            {/* BLOCO DE ENDEREÇO (CEP PRIMEIRO) */}
-            <div className="input-row">
-              <div className="input-group" style={{ flex: '1' }}>
-                <label>CEP</label>
-                <input
-                  type="text"
-                  id="cep"
-                  name="cep"
-                  placeholder="00000-000"
-                  maxLength="9"
-                  required
-                />
-              </div>
-              <div className="input-group" style={{ flex: '2' }}>
-                <label>Endereço (Rua e Número)</label>
-                <input type="text" id="rua" name="rua" placeholder="Aguardando CEP..." required />
-              </div>
-            </div>
-
-            {/* CIDADE E ESTADO */}
-            <div className="input-row">
-              <div className="input-group" style={{ flex: '2' }}>
-                <label>Cidade</label>
-                <input type="text" id="cidade" name="cidade" placeholder="Cidade" required />
-              </div>
-              <div className="input-group" style={{ flex: '1' }}>
-                <label>Estado</label>
-                <input type="text" id="uf" name="uf" placeholder="UF" maxLength="2" required />
-              </div>
-            </div>
-
-            <button type="submit" className="btn-main pulse" style={{ width: '100%', marginTop: '1rem' }}>
-              Confirmar e Gerar Treino
-            </button>
-          </form>        </div>
       </section>
       {/* FAQ FORA DO CARD DE PREÇO */}
       <section className="faq-section">
