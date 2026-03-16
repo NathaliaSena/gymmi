@@ -164,7 +164,6 @@ body {
         position: relative;
 
         &::before {
-            content: '';
             width: 6px;
             height: 6px;
             background: $primary-color;
@@ -303,6 +302,34 @@ body {
             opacity: 0.6;
         }
     }
+}
+
+.required-star {
+  color: #ff4d4d;
+  margin-left: 3px;
+}
+
+.error-message {
+  color: #ff4d4d;
+  font-size: 0.75rem;
+  margin-top: 5px;
+  display: block;
+}
+
+.input-error {
+  border-color: #ff4d4d !important;
+}
+
+.input-disabled {
+  background: rgba(255, 255, 255, 0.1) !important;
+  cursor: not-allowed;
+  opacity: 0.8;
+}
+
+.form-footer-info {
+  font-size: 0.8rem;
+  color: #888;
+  margin: 15px 0;
 }
 
 .cadastro-header {
