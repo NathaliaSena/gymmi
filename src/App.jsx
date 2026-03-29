@@ -1,5 +1,5 @@
 import React from 'react'
-import CadastroForm from '../src/page/cadastroForm'
+import CadastroForm from '../src/pages/cadastroForm'
 
 function App() {
   return (
@@ -32,7 +32,7 @@ function App() {
         </div>
 
         <div className="hero-image">
-          <img src="https://images.unsplash.com/photo-1517836357463-d25dfeac3438?auto=format&fit=crop&q=80&w=1000" alt="Gymmi App" />
+          <img src="../src/assets/celular-gymmi.png" alt="mão segurando telefone usando whatsapp"/>
         </div>
 
         <div className="scroll-indicator">
